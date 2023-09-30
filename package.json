@@ -1,0 +1,75 @@
+{
+  "name": "@ionic-enterprise/contacts",
+  "version": "1.1.3",
+  "description": "Ionic Contacts Plugin",
+  "author": "Ionic Team <hi@ionic.io> (https://ionicframework.com)",
+  "license": "SEE LICENSE",
+  "cordova": {
+    "id": "@ionic-enterprise/contacts",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "scripts": {
+    "clean": "rimraf ngx www index.* IonicContacts.* contacts.*",
+    "apply-dev": "npm run build",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "precommit": "npm run lint",
+    "prepublishOnly": "npm run build",
+    "watch": "tsc -w",
+    "watch-dev": "watch 'npm run apply-dev' ./lib",
+    "docs": "./scripts/docs.sh",
+    "release": "standard-version -a",
+    "pre-release": "standard-version -a -p --skip.changelog=true --skip.tag=true",
+    "build": "npm run clean && tsc && ngc -p tsconfig.ng.json && ./scripts/ng-prepare.sh"
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "sync-cordova-xml2 package.json plugin.xml --output=plugin.xml && git add plugin.xml",
+      "postchangelog": "./scripts/changelog-replace.sh && npm run docs && git add docs"
+    }
+  },
+  "devDependencies": {
+    "@angular/compiler": "^9.1.1",
+    "@angular/compiler-cli": "^9.1.1",
+    "@angular/core": "^8.2.0",
+    "@types/cordova": "0.0.34",
+    "np": "^5.0.3",
+    "rimraf": "^2.6.3",
+    "standard-version": "^7.0.0",
+    "sync-cordova-xml2": "0.0.3",
+    "tslint": "^5.18.0",
+    "tslint-ionic-rules": "0.0.21",
+    "typedoc": "^0.17.7",
+    "typescript": "3.8.x",
+    "watch": "^1.0.2",
+    "typedoc-plugin-markdown": "^2.3.1",
+    "concat-md": "^0.3.5",
+    "@ionic/markdown-docs-theme": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/cordova-plugin-ionic-contacts.git"
+  },
+  "bugs": {
+    "url": "https://ionic.zendesk.com/hc/en-us"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "1.0.0": {
+        "cordova-android": ">=6.3.0"
+      },
+      "2.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

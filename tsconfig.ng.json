@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "ngx",
+    "module": "es2015",
+    "rootDir": "lib"
+  },
+  "include": ["lib/ngx/index.ts"],
+  "angularCompilerOptions": {
+    "enableIvy": false
+  }
+}

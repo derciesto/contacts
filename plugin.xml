@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="@ionic-enterprise/contacts" version="1.1.2">
+    <name>@ionic-enterprise/contacts</name>
+    <description>Ionic Contacts Plugin</description>
+    <license>SEE LICENSE</license>
+    <keywords>Ionic,contacts</keywords>
+    <repo>git+https://github.com/ionic-team/cordova-plugin-ionic-contacts.git</repo>
+    <issue>https://ionic.zendesk.com/hc/en-us</issue>
+    <js-module src="contacts.js">
+        <runs/>
+        <clobbers target="IonicContacts"/>
+    </js-module>
+    <js-module src="IonicContacts.js">
+        <runs/>
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="IonicContacts">
+                <param name="android-package" value="com.ionicframework.contacts.ContactManager"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_CONTACTS"/>
+            <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+            <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+        </config-file>
+        <source-file src="src/android/ContactAccessor.java" target-dir="src/com/ionicframework/contacts"/>
+        <source-file src="src/android/ContactManager.java" target-dir="src/com/ionicframework/contacts"/>
+        <source-file src="src/android/ContactInfoDTO.java" target-dir="src/com/ionicframework/contacts"/>
+    </platform>
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="IonicContacts">
+                <param name="ios-package" value="IonicContacts"/>
+            </feature>
+            <preference name="UseSwiftLanguageVersion" value="4.2"/>
+        </config-file>
+        <source-file src="src/ios/Contact.swift"/>
+        <source-file src="src/ios/ContactField.swift"/>
+        <source-file src="src/ios/ContactFieldBuilder.swift"/>
+        <source-file src="src/ios/Contacts.swift"/>
+        <source-file src="src/ios/ContactsCordovaUtils.swift"/>
+        <source-file src="src/ios/ContactsPlugin.swift"/>
+        <framework src="AddressBook.framework" weak="true"/>
+        <framework src="AddressBookUI.framework" weak="true"/>
+        <framework src="CoreGraphics.framework"/>
+        <config-file target="*-Info.plist" parent="NSContactsUsageDescription">
+            <string>Access contacts</string>
+        </config-file>
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+    </platform>
+    <author email="hi@ionic.io" href="https://ionicframework.com">Ionic Team</author>
+</plugin>

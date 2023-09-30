@@ -1,0 +1,3 @@
+import { Contacts as _Contacts } from '../IonicContacts';
+export declare class Contacts extends _Contacts {
+}

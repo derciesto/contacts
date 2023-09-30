@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var IonicContacts_1 = require("./IonicContacts");
+exports.Contact = IonicContacts_1.Contact;
+exports.ContactAddress = IonicContacts_1.ContactAddress;
+exports.ContactError = IonicContacts_1.ContactError;
+exports.ContactField = IonicContacts_1.ContactField;
+exports.ContactFindOptions = IonicContacts_1.ContactFindOptions;
+exports.ContactName = IonicContacts_1.ContactName;
+exports.ContactOrganization = IonicContacts_1.ContactOrganization;
+var IonicContacts_2 = require("./IonicContacts");
+exports.Contacts = new IonicContacts_2.Contacts();
