@@ -46,7 +46,6 @@
     "watch": "^1.0.2",
     "typedoc-plugin-markdown": "^2.3.1",
     "concat-md": "^0.3.5",
-    "@ionic/markdown-docs-theme": "^1.0.0"
   },
   "repository": {
     "type": "git",
