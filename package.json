@@ -45,7 +45,7 @@
     "typescript": "3.8.x",
     "watch": "^1.0.2",
     "typedoc-plugin-markdown": "^2.3.1",
-    "concat-md": "^0.3.5",
+    "concat-md": "^0.3.5"
   },
   "repository": {
     "type": "git",
